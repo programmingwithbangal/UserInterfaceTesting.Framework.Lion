@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterfaceTesting.Framework.Lion", "UserInterfaceTesting.Framework.Lion\UserInterfaceTesting.Framework.Lion.csproj", "{7D4471A8-4586-431C-8207-97253DB0104E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterfaceTestingResources", "UserInterfaceTestingResources\UserInterfaceTestingResources.csproj", "{D3EED852-B447-44F1-B3FE-575977BB6694}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D4471A8-4586-431C-8207-97253DB0104E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4471A8-4586-431C-8207-97253DB0104E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4471A8-4586-431C-8207-97253DB0104E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4471A8-4586-431C-8207-97253DB0104E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EED852-B447-44F1-B3FE-575977BB6694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EED852-B447-44F1-B3FE-575977BB6694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EED852-B447-44F1-B3FE-575977BB6694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EED852-B447-44F1-B3FE-575977BB6694}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFB35E70-CB7D-444D-AE0E-7A51CB0A352A}
+	EndGlobalSection
+EndGlobal
