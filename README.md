@@ -15,3 +15,6 @@ A free place to practice some scenarios like:
 * Automate an application that evolves over time
 
 https://www.ultimateqa.com/automation/
+
+## Integrated Development Environment
+Microsoft Visual Studio IDE is used to develop this Framework.
