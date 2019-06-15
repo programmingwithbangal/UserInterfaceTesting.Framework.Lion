@@ -17,10 +17,10 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test3Sprint2()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2PageHelper = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2PageHelper, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
-            TestHomePage = sprint2PageActions.FillOutFormAndSubmit(UserConstants.DefaultFirstName, UserConstants.DefaultLastName);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            var sprint2Page = new Sprint2Page(Driver);
+            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            sprint2PageActions.FillOutFormAndSubmit(UserConstants.DefaultFirstName, UserConstants.DefaultLastName);
+            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -29,10 +29,10 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test4Sprint2Refactor()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2PageHelper = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2PageHelper, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
-            TestHomePage = sprint2PageActions.FillOutFormAndSubmit(TestUser.FirstName, TestUser.LastName);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            var sprint2Page = new Sprint2Page(Driver);
+            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            sprint2PageActions.FillOutFormAndSubmit(TestUser.FirstName, TestUser.LastName);
+            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -41,10 +41,10 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test5Sprint2Refactor2()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2PageHelper = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2PageHelper, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
-            TestHomePage = sprint2PageActions.FillOutFormAndSubmit(TestUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            var sprint2Page = new Sprint2Page(Driver);
+            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            sprint2PageActions.FillOutFormAndSubmit(TestUser);
+            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -53,19 +53,19 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test6Sprint2Alternate()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2PageHelper = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2PageHelper, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
-            TestHomePage = sprint2PageActions.FillOutFormAndSubmitAlternate(TestUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            var sprint2Page = new Sprint2Page(Driver);
+            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            sprint2PageActions.FillOutFormAndSubmitAlternate(TestUser);
+            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
-        private void GotoSampleApplicationPage(BasePage sprint2Page, string url, string title)
+        private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
         {
-            sprint2Page.GoTo(url);
-            Assert.IsTrue(sprint2Page.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
+            basePage.GoTo(url);
+            Assert.IsTrue(basePage.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
         }
 
-        private void ValidatePageTitle(BasePage homePage, string ultimateQaHomePageTitle) => Assert.IsTrue(homePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

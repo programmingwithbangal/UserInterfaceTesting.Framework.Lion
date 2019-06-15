@@ -13,24 +13,22 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
             Sprint2Page = new Sprint2Page(driver);
         }
 
-        internal BasePage FillOutFormAndSubmit(string firstname, string lastname) => BaseFillOutFormAndSubmit(firstname, lastname);
+        internal void FillOutFormAndSubmit(string firstname, string lastname) => BaseFillOutFormAndSubmit(firstname, lastname);
 
-        internal BasePage FillOutFormAndSubmit(User user) => BaseFillOutFormAndSubmit(user.FirstName, user.LastName);
+        internal void FillOutFormAndSubmit(User user) => BaseFillOutFormAndSubmit(user.FirstName, user.LastName);
 
-        internal BasePage FillOutFormAndSubmitAlternate(User user)
+        internal void FillOutFormAndSubmitAlternate(User user)
         {
             Sprint2Page.FirstNameFieldAlternate.SendKeys(user.FirstName);
             Sprint2Page.LastNameFieldAlternate.SendKeys(user.LastName);
             Sprint2Page.SubmitButton.Submit();
-            return new BasePage(Sprint2Page.Driver);
         }
 
-        private BasePage BaseFillOutFormAndSubmit(string firstname, string lastname)
+        private void BaseFillOutFormAndSubmit(string firstname, string lastname)
         {
             Sprint2Page.FirstNameField.SendKeys(firstname);
             Sprint2Page.LastNameField.SendKeys(lastname);
             Sprint2Page.SubmitButton.Submit();
-            return new BasePage(Sprint2Page.Driver);
         }
     }
 }

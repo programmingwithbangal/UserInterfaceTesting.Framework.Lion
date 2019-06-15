@@ -13,22 +13,20 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
     {
         private User TestEmergencyContactUser { get; set; }
 
-        private BasePage TestHomePage { get; set; }
-
         [TestMethod]
         [Description("Validate that when selecting the Other gender type, the form of Sprint4 is submitted successfully.")]
         [TestProperty("Author", "Alice")]
         public void Test9Sprint4()
         {
             var sprint4PageActions = new Sprint4PageActions(Driver);
-            var sprint4PageHelper = new Sprint4Page(Driver);
-            GotoSampleApplicationPage(sprint4PageHelper, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
+            var sprint4Page = new Sprint4Page(Driver);
+            GotoSampleApplicationPage(sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
             SetGenderType(Gender.Other);
             sprint4PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
             SetEmergencyContactGenderType(Gender.Other);
-            TestHomePage = sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
+            ValidatePageTitle(sprint4Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -37,27 +35,27 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test10Sprint4()
         {
             var sprint4PageActions = new Sprint4PageActions(Driver);
-            var sprint4PageHelper = new Sprint4Page(Driver);
-            GotoSampleApplicationPage(sprint4PageHelper, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
+            var sprint4Page = new Sprint4Page(Driver);
+            GotoSampleApplicationPage(sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
             SetGenderType(Gender.Female);
             sprint4PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
             SetEmergencyContactGenderType(Gender.Female);
-            TestHomePage = sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
+            ValidatePageTitle(sprint4Page, PageConstants.UltimateQaHomePageTitle);
         }
 
-        private void GotoSampleApplicationPage(BasePage sprint4Page, string url, string title)
+        private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
         {
-            sprint4Page.GoTo(url);
-            Assert.IsTrue(sprint4Page.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
+            basePage.GoTo(url);
+            Assert.IsTrue(basePage.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
         }
 
         private void SetGenderType(Gender genderType) => TestUser.GenderType = genderType;
 
         private void SetEmergencyContactGenderType(Gender genderType) => TestEmergencyContactUser.GenderType = genderType;
 
-        private void ValidatePageTitle(BasePage homePage, string ultimateQaHomePageTitle) => Assert.IsTrue(homePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

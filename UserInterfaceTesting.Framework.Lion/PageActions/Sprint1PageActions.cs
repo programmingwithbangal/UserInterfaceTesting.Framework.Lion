@@ -12,11 +12,10 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
             Sprint1Page = new Sprint1Page(driver);
         }
 
-        internal BasePage FillOutFormAndSubmit(string firstname)
+        internal void FillOutFormAndSubmit(string firstname)
         {
             Sprint1Page.FirstNameField.SendKeys(firstname);
             Sprint1Page.SubmitButton.Submit();
-            return new BasePage(Sprint1Page.Driver);
         }
     }
 }

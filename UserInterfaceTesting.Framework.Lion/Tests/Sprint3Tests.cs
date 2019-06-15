@@ -10,19 +10,17 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
     [TestCategory("Sprint3Tests")]
     public class Sprint3Tests : BaseTests
     {
-        private BasePage TestHomePage { get; set; }
-
         [TestMethod]
         [Description("Validate that when selecting the Other gender type, the form of Sprint3 is submitted successfully.")]
         [TestProperty("Author", "Jack")]
         public void Test7Sprint3()
         {
             var sprint3PageActions = new Sprint3PageActions(Driver);
-            var sprint3PageHelper = new Sprint3Page(Driver);
-            GotoSampleApplicationPage(sprint3PageHelper, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
+            var sprint3Page = new Sprint3Page(Driver);
+            GotoSampleApplicationPage(sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
             SetGenderType(Gender.Other);
-            TestHomePage = sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
+            ValidatePageTitle(sprint3Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -31,22 +29,22 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test8Sprint3()
         {
             var sprint3PageActions = new Sprint3PageActions(Driver);
-            var sprint3PageHelper = new Sprint3Page(Driver);
-            GotoSampleApplicationPage(sprint3PageHelper, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
+            var sprint3Page = new Sprint3Page(Driver);
+            GotoSampleApplicationPage(sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
             SetGenderType(Gender.Female);
-            TestHomePage = sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
-            ValidatePageTitle(TestHomePage, PageConstants.UltimateQaHomePageTitle);
+            sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
+            ValidatePageTitle(sprint3Page, PageConstants.UltimateQaHomePageTitle);
         }
 
-        private void GotoSampleApplicationPage(BasePage sprint3Page, string url, string title)
+        private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
         {
-            sprint3Page.GoTo(url);
-            Assert.IsTrue(sprint3Page.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
+            basePage.GoTo(url);
+            Assert.IsTrue(basePage.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
         }
 
         private void SetGenderType(Gender genderType) => TestUser.GenderType = genderType;
 
-        private void ValidatePageTitle(BasePage homePage, string ultimateQaHomePageTitle) => Assert.IsTrue(homePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

@@ -13,9 +13,7 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
     {
         private User TestEmergencyContactUser { get; set; }
 
-        private BasePage TestHomePage { get; set; }
-
-        private Sprint5Page2 TestSprint5Page2 { get; set; }
+        private BasePage BasePage { get; set; }
 
         [TestMethod]
         [Description("Validate that when selecting the Female gender type, the form of Sprint5 is submitted successfully.")]
@@ -29,8 +27,8 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
             sprint5PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
             SetEmergencyContactGenderType(Gender.Female);
-            TestSprint5Page2 = sprint5PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
-            Assert.IsTrue(TestSprint5Page2.IsLoaded(PageConstants.FormPage2Title),
+            BasePage = sprint5PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
+            Assert.IsTrue(BasePage.IsLoaded(PageConstants.FormPage2Title),
                 $"{ErrorConstants.SampleApplicationPage2Error} Expected: {PageConstants.FormPage2Title} Actual: {Driver.Title}");
         }
 
@@ -41,8 +39,8 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         {
             Test11Sprint5();
             var sprint5Page2Actions = new Sprint5Page2Actions(Driver);
-            TestHomePage = sprint5Page2Actions.FillOutRadioButtonAndSubmit(Animal.Crocodiles);
-            Assert.IsTrue(TestHomePage.IsLoaded(PageConstants.UltimateQaHomePageTitle),
+            BasePage = sprint5Page2Actions.FillOutRadioButtonAndSubmit(Animal.Crocodiles);
+            Assert.IsTrue(BasePage.IsLoaded(PageConstants.UltimateQaHomePageTitle),
                 $"{ErrorConstants.UltimateQaHomePageError} Expected: {PageConstants.UltimateQaHomePageTitle} Actual: {Driver.Title}");
         }
 

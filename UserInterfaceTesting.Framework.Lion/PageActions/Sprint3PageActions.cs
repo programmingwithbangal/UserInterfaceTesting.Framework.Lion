@@ -15,13 +15,12 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
             Sprint3Page = new Sprint3Page(driver);
         }
 
-        internal BasePage FillOutFormWithRadioButtonAndSubmit(User user)
+        internal void FillOutFormWithRadioButtonAndSubmit(User user)
         {
             SetGender(user);
             Sprint3Page.FirstNameField.SendKeys(user.FirstName);
             Sprint3Page.LastNameField.SendKeys(user.LastName);
             Sprint3Page.SubmitButton.Submit();
-            return new BasePage(Sprint3Page.Driver);
         }
 
         private void SetGender(User user)

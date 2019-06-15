@@ -22,13 +22,12 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
             Sprint4Page.LastNameField.SendKeys(user.LastName);
         }
 
-        internal BasePage FillOutEmergencyContactFormAndSubmit(User emergencyContactUser)
+        internal void FillOutEmergencyContactFormAndSubmit(User emergencyContactUser)
         {
             SetEmergencyContactGender(emergencyContactUser);
             Sprint4Page.FirstNameEmergencyContactField.SendKeys(emergencyContactUser.FirstName);
             Sprint4Page.LastNameEmergencyContactField.SendKeys(emergencyContactUser.LastName);
             Sprint4Page.SubmitEmergencyContactButton.Submit();
-            return new BasePage(Sprint4Page.Driver);
         }
 
         private void SetPrimaryContactGender(User user)
