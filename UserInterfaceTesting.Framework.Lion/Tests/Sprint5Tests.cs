@@ -26,20 +26,32 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
             SetGenderType(Gender.Female);
             sprint5PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
-            SetEmergencyContactGenderType(Gender.Female);
+            SetEmergencyContactGenderType(Gender.Other);
             BasePage = sprint5PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
             Assert.IsTrue(BasePage.IsLoaded(PageConstants.FormPage2Title),
                 $"{ErrorConstants.SampleApplicationPage2Error} Expected: {PageConstants.FormPage2Title} Actual: {Driver.Title}");
         }
 
         [TestMethod]
-        [Description("Validate that the second form of Sprint5 is submitted successfully.")]
+        [Description("Validate that the second form of Sprint5 is submitted successfully when selecting the Crocodiles animal type.")]
         [TestProperty("Author", "Jack")]
         public void Test12Sprint5()
         {
             Test11Sprint5();
             var sprint5Page2Actions = new Sprint5Page2Actions(Driver);
             BasePage = sprint5Page2Actions.FillOutRadioButtonAndSubmit(Animal.Crocodiles);
+            Assert.IsTrue(BasePage.IsLoaded(PageConstants.UltimateQaHomePageTitle),
+                $"{ErrorConstants.UltimateQaHomePageError} Expected: {PageConstants.UltimateQaHomePageTitle} Actual: {Driver.Title}");
+        }
+
+        [TestMethod]
+        [Description("Validate that the second form of Sprint5 is submitted successfully when selecting the Bunnies animal type.")]
+        [TestProperty("Author", "Jack")]
+        public void Test13Sprint5()
+        {
+            Test11Sprint5();
+            var sprint5Page2Actions = new Sprint5Page2Actions(Driver);
+            BasePage = sprint5Page2Actions.FillOutRadioButtonAndSubmit(Animal.Bunnies);
             Assert.IsTrue(BasePage.IsLoaded(PageConstants.UltimateQaHomePageTitle),
                 $"{ErrorConstants.UltimateQaHomePageError} Expected: {PageConstants.UltimateQaHomePageTitle} Actual: {Driver.Title}");
         }
