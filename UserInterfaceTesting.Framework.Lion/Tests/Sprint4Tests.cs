@@ -19,14 +19,13 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test9Sprint4()
         {
             var sprint4PageActions = new Sprint4PageActions(Driver);
-            var sprint4Page = new Sprint4Page(Driver);
-            GotoSampleApplicationPage(sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
+            GotoSampleApplicationPage(sprint4PageActions.Sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
             SetGenderType(Gender.Other);
             sprint4PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
             SetEmergencyContactGenderType(Gender.Other);
             sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
-            ValidatePageTitle(sprint4Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint4PageActions.Sprint4Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -35,14 +34,13 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test10Sprint4()
         {
             var sprint4PageActions = new Sprint4PageActions(Driver);
-            var sprint4Page = new Sprint4Page(Driver);
-            GotoSampleApplicationPage(sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
+            GotoSampleApplicationPage(sprint4PageActions.Sprint4Page, PageConstants.Sprint4Url, PageConstants.Sprint4Title);
             SetGenderType(Gender.Female);
             sprint4PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
             SetEmergencyContactGenderType(Gender.Female);
             sprint4PageActions.FillOutEmergencyContactFormAndSubmit(TestEmergencyContactUser);
-            ValidatePageTitle(sprint4Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint4PageActions.Sprint4Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
@@ -55,7 +53,7 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
 
         private void SetEmergencyContactGenderType(Gender genderType) => TestEmergencyContactUser.GenderType = genderType;
 
-        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle),
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

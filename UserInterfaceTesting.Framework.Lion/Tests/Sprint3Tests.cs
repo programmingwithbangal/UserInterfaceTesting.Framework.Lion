@@ -16,11 +16,10 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test7Sprint3()
         {
             var sprint3PageActions = new Sprint3PageActions(Driver);
-            var sprint3Page = new Sprint3Page(Driver);
-            GotoSampleApplicationPage(sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
+            GotoSampleApplicationPage(sprint3PageActions.Sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
             SetGenderType(Gender.Other);
             sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
-            ValidatePageTitle(sprint3Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint3PageActions.Sprint3Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -29,11 +28,10 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test8Sprint3()
         {
             var sprint3PageActions = new Sprint3PageActions(Driver);
-            var sprint3Page = new Sprint3Page(Driver);
-            GotoSampleApplicationPage(sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
+            GotoSampleApplicationPage(sprint3PageActions.Sprint3Page, PageConstants.Sprint3Url, PageConstants.Sprint3Title);
             SetGenderType(Gender.Female);
             sprint3PageActions.FillOutFormWithRadioButtonAndSubmit(TestUser);
-            ValidatePageTitle(sprint3Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint3PageActions.Sprint3Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
@@ -44,7 +42,7 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
 
         private void SetGenderType(Gender genderType) => TestUser.GenderType = genderType;
 
-        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle),
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

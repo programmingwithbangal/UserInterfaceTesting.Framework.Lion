@@ -17,10 +17,9 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test3Sprint2()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2Page = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            GotoSampleApplicationPage(sprint2PageActions.Sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
             sprint2PageActions.FillOutFormAndSubmit(UserConstants.DefaultFirstName, UserConstants.DefaultLastName);
-            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint2PageActions.Sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -29,10 +28,9 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test4Sprint2Refactor()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2Page = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            GotoSampleApplicationPage(sprint2PageActions.Sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
             sprint2PageActions.FillOutFormAndSubmit(TestUser.FirstName, TestUser.LastName);
-            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint2PageActions.Sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -41,10 +39,9 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test5Sprint2Refactor2()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2Page = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            GotoSampleApplicationPage(sprint2PageActions.Sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
             sprint2PageActions.FillOutFormAndSubmit(TestUser);
-            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint2PageActions.Sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         [TestMethod]
@@ -53,10 +50,9 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test6Sprint2Alternate()
         {
             var sprint2PageActions = new Sprint2PageActions(Driver);
-            var sprint2Page = new Sprint2Page(Driver);
-            GotoSampleApplicationPage(sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
+            GotoSampleApplicationPage(sprint2PageActions.Sprint2Page, PageConstants.Sprint2Url, PageConstants.Sprint2Title);
             sprint2PageActions.FillOutFormAndSubmitAlternate(TestUser);
-            ValidatePageTitle(sprint2Page, PageConstants.UltimateQaHomePageTitle);
+            ValidatePageTitle(sprint2PageActions.Sprint2Page, PageConstants.UltimateQaHomePageTitle);
         }
 
         private void GotoSampleApplicationPage(BasePage basePage, string url, string title)
@@ -65,7 +61,7 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
             Assert.IsTrue(basePage.IsLoaded(title), $"{ErrorConstants.SampleApplicationPageError} Expected: {title} Actual: {Driver.Title}");
         }
 
-        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle), 
+        private void ValidatePageTitle(BasePage basePage, string ultimateQaHomePageTitle) => Assert.IsTrue(basePage.IsLoaded(ultimateQaHomePageTitle),
             $"{ErrorConstants.UltimateQaHomePageError} Expected: {ultimateQaHomePageTitle} Actual: {Driver.Title}");
     }
 }

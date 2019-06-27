@@ -21,8 +21,7 @@ namespace UserInterfaceTesting.Framework.Lion.Tests
         public void Test11Sprint5()
         {
             var sprint5PageActions = new Sprint5PageActions(Driver);
-            var sprint5PageHelper = new Sprint5Page(Driver);
-            GotoSampleApplicationPage(sprint5PageHelper, PageConstants.Sprint5Url, PageConstants.Sprint5Title);
+            GotoSampleApplicationPage(sprint5PageActions.Sprint5Page, PageConstants.Sprint5Url, PageConstants.Sprint5Title);
             SetGenderType(Gender.Female);
             sprint5PageActions.FillOutPrimaryContactForm(TestUser);
             TestEmergencyContactUser = SetUser(UserConstants.EmergencyContactFirstName, UserConstants.EmergencyContactLastName);
