@@ -1,4 +1,4 @@
-# UserInterfaceTesting.Framework.Lion <img src ="UserInterfaceTesting.Framework.Lion/images/lion.jpg" width=99>
+# UserInterfaceTesting.Framework.Lion <img src ="UserInterfaceTesting.Framework.Lion/images/lion.jpg" width=119>
 This is a User Interface testing Framework using C#, .Net Framework, MSTest and Selenium WebDriver to test UltimateQA Practice site.
 
 ## Selenium WebDriver <img src ="UserInterfaceTesting.Framework.Lion/images/selenium.png" width=79>
@@ -18,3 +18,11 @@ https://www.ultimateqa.com/automation/
 
 ## Integrated Development Environment
 Microsoft Visual Studio IDE is used to develop this Framework.
+
+### Build Solution
+* Build => Build Solution
+<img src ="UserInterfaceTesting.Framework.Lion/images/build.png" width=350>
+
+### Run Tests
+* Test => Windows => Test Explorer => Run All
+<img src ="UserInterfaceTesting.Framework.Lion/images/testexplorer.png" width=500>
