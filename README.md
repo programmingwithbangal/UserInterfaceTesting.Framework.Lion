@@ -27,6 +27,15 @@ Microsoft Visual Studio IDE is used to develop this Framework.
 * Test => Windows => Test Explorer => Run All
 <img src ="UserInterfaceTesting.Framework.Lion/images/testexplorer.png" width=500>
 
+### Build Solution with Command Prompt/Windows PowerShell
+* Open Folder in File Explorer where you have the "UserInterfaceTesting.Framework.Lion.sln" file
+* Open Command Prompt/Windows PowerShell
+* Run "msbuild.exe"
+
+#### Notes
+* Make sure the 'PATH' of the "Environment Variables" is set for 'MSBuild'.
+* PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\
+
 ### Run Tests with Command Prompt/Windows PowerShell
 * Open Folder in File Explorer: ..\UserInterfaceTesting.Framework.Lion\bin\Debug
 * Open Command Prompt/Windows PowerShell
