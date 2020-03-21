@@ -1,10 +1,17 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace UserInterfaceTesting.Framework.Lion.Pages
 {
     internal class BasePage
     {
         internal IWebDriver Driver { get; set; }
+
+        internal WebDriverWait Wait()
+        {
+            return new WebDriverWait(Driver, TimeSpan.FromSeconds(1));
+        }
 
         internal BasePage(IWebDriver driver)
         {

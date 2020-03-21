@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace UserInterfaceTesting.Framework.Lion.Pages
 {
@@ -6,10 +7,10 @@ namespace UserInterfaceTesting.Framework.Lion.Pages
     {
         internal Sprint5Page2(IWebDriver driver) : base(driver){}
 
-        internal IWebElement SubmitButton => Driver.FindElement(By.XPath("//*[@type='submit']"));
+        internal IWebElement SubmitButton => Wait().Until(d => d.FindElement(By.XPath("//*[@type='submit']")));
 
-        internal IWebElement CrocodilesRadioButton => Driver.FindElement(By.XPath("//input[@value='crocodiles']"));
+        internal IWebElement CrocodilesRadioButton => Wait().Until(d => d.FindElement(By.XPath("//input[@value='crocodiles']")));
 
-        internal IWebElement BunniesRadioButton => Driver.FindElement(By.XPath("//input[@value='bunnies']"));
+        internal IWebElement BunniesRadioButton => Wait().Until(d => d.FindElement(By.XPath("//input[@value='bunnies']")));
     }
 }
