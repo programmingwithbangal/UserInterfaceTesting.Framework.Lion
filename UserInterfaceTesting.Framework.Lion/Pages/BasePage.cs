@@ -10,7 +10,7 @@ namespace UserInterfaceTesting.Framework.Lion.Pages
 
         internal WebDriverWait Wait()
         {
-            return new WebDriverWait(Driver, TimeSpan.FromSeconds(1));
+            return new WebDriverWait(Driver, TimeSpan.FromSeconds(3));
         }
 
         internal BasePage(IWebDriver driver)
