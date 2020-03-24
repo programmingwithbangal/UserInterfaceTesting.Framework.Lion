@@ -35,11 +35,17 @@ namespace UserInterfaceTestingResources
                 "headless"
             });
 
-            var outPutDirectory = GetAssemblysOutputDirectory();
-            return new ChromeDriver(outPutDirectory, chromeOptions);
+            var driverPath = GetDriverPath();
+
+            var chromeDriverService = ChromeDriverService.CreateDefaultService(driverPath);
+            chromeDriverService.HideCommandPromptWindow = true;
+
+            //ChromeDriver driver = new ChromeDriver(chromeDriverService, chromeOptions);
+
+            return new ChromeDriver(chromeDriverService, chromeOptions);
         }
 
-        private static string GetAssemblysOutputDirectory()
+        private static string GetDriverPath()
         {
             return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }

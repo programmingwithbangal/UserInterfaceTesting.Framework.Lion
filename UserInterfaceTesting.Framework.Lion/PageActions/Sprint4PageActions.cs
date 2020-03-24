@@ -1,5 +1,6 @@
 ﻿using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using UserInterfaceTesting.Framework.Lion.Enums;
 using UserInterfaceTesting.Framework.Lion.Models;
 using UserInterfaceTesting.Framework.Lion.Pages;
@@ -9,6 +10,8 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
     internal class Sprint4PageActions
     {
         internal Sprint4Page Sprint4Page { get; set; }
+
+        private Actions WebDriverActions => new Actions(Sprint4Page.Driver);
 
         internal Sprint4PageActions(IWebDriver driver)
         {
@@ -56,10 +59,10 @@ namespace UserInterfaceTesting.Framework.Lion.PageActions
                 case Gender.Male:
                     break;
                 case Gender.Female:
-                    Sprint4Page.FemaleGenderEmergencyContactRadioButton.Click();
+                    WebDriverActions.MoveToElement(Sprint4Page.FemaleGenderEmergencyContactRadioButton).Click();
                     break;
                 case Gender.Other:
-                    Sprint4Page.OtherGenderEmergencyContactRadioButton.Click();
+                    WebDriverActions.MoveToElement(Sprint4Page.OtherGenderEmergencyContactRadioButton).Click();
                     break;
                 case Gender.None:
                     throw new Exception($"Request type: {emergencyContactUser.GenderType} is invalid.");
